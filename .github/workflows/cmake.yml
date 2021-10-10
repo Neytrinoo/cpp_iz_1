@@ -32,7 +32,9 @@ jobs:
           cmake ..
         
     - name: Build unit_tests
-      run: make unit_test
+      run: |
+        cd build
+        make unit_test
       
     - name: Unit testing
       run: ./unit_test
