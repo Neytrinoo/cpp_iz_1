@@ -92,7 +92,6 @@ TEST(TestIOFunctions, test) {
     EXPECT_EQ(input_num(f, &num), INVALID_FORMAT);
     fclose(f);
 
-
     // output_roman_num()
     char *roman_num = "XIV";
     FILE *out_file = fopen("out_test.out", "w");
