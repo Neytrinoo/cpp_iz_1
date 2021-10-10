@@ -17,12 +17,12 @@ jobs:
       
     - name: Cpplint check
       run: |
-        sudo apt-get install cpplint
+        pip install cpplint
         cpplint --extensions=c src/*
       
     - name: Cppcheck check
       run: |
-        sudo apt-get install cppcheck
+        sudo apt-get install -y cppcheck
         cppcheck --enable=all --suppress=missingInclude src/
       
     - name: Cmake build
