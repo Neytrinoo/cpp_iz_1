@@ -17,7 +17,7 @@ char *into_roman_nums(int num, int *length) {
 
     int for_num_ind = 0;
 
-    for (size_t i = sizeof(roman_arab_nums) / sizeof(int) - 1; i >= 0 && num > 0 && for_num_ind < MAX_ROMAN_NUM_LENGTH - 2; i--) {
+    for (size_t i = sizeof(roman_arab_nums) / sizeof(int) - 1; num > 0 && for_num_ind < MAX_ROMAN_NUM_LENGTH - 2; --i) {
         while (num / roman_arab_nums[i] > 0 && for_num_ind < MAX_ROMAN_NUM_LENGTH - 2) {
             strcpy(for_num + for_num_ind, roman_nums[i]);
             for_num_ind += strlen(roman_nums[i]);
