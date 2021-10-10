@@ -99,8 +99,6 @@ TEST(TestIOFunctions, test) {
     EXPECT_EQ(output_roman_num(stdout, nullptr), NULL_POINTER_EXCEPTION);
     EXPECT_EQ(output_roman_num(out_file, roman_num), SUCCESS);
     fclose(out_file);
-
-    num = 1239;
 }
 
 int main(int argc, char *argv[]) {
