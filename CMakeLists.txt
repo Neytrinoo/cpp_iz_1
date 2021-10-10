@@ -13,6 +13,10 @@ add_executable(main ${SOURCE_MAIN_EXE})
 target_include_directories(main PUBLIC include)
 target_link_libraries(main roman_nums)
 
+find_package(GTest REQUIRED)
+find_package(Threads REQUIRED)
+
 add_executable(unit_test unit_tests/main.cpp)
 target_include_directories(unit_test PUBLIC include)
+target_link_libraries(unit_test roman_nums ${GTEST_LIBRARIES} Threads::Threads)
 
