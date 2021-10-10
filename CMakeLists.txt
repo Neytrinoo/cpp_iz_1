@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.16)
 project(cpp_iz_1)
 
 set(SOURCE_LIB src/into_roman_nums.c src/io_functions.c src/print_errors.c)
