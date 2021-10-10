@@ -38,7 +38,29 @@ jobs:
         make unit_test
       
     - name: Unit testing
-      run: ./build/unit_test
+      run: |
+        cd build
+        ./unit_test
         
     - name: Gcovr test
-      run: gcovr -r . --html --html-details -o coverage_report.html
+      run: |
+        mkdir coverage-report && cd coverage-report
+        gcovr -r ../ --html --html-details -o coverage_report.html
+        
+    - name: Make gcovr artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: Gcovr test
+        path: coverage-report/
+        
+    - name: Valgrind test
+      run: |
+        sudo apt-get install -y valgrind
+        mkdir valgrind-report
+        valgrind --tool=memcheck --leak-check=yes --log-file=valgrid-report/valgrind_report.txt ./build/unit_test
+
+    - name: Make valgrind artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: Valgrind test
+        path: valgrid-report/
