@@ -27,6 +27,7 @@ jobs:
       
     - name: Cmake build
       run: |
+          sudo apt-get install -y gcovr
           mkdir build && cd build
           sudo apt-get install -y libgtest-dev
           cmake ..
@@ -37,4 +38,8 @@ jobs:
         make unit_test
       
     - name: Unit testing
-      run: ./unit_test
+      run: |
+        .build/unit_test
+        
+    - name: Gcovr test
+      run: gcovr -r . --html -o example-html.html
