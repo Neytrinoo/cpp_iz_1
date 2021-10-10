@@ -57,7 +57,8 @@ jobs:
       run: |
         sudo apt-get install -y valgrind
         mkdir valgrind-report
-        valgrind --tool=memcheck --leak-check=yes --log-file=valgrind-report/valgrind_report.txt ./build/unit_test
+        cd build
+        valgrind --tool=memcheck --leak-check=yes --log-file=../valgrind-report/valgrind_report.txt ./unit_test
 
     - name: Make valgrind artifacts
       uses: actions/upload-artifact@v2
