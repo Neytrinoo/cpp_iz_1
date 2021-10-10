@@ -30,10 +30,11 @@ jobs:
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       run: |
         mkdir build
-        cd bulid
+        cd build
         cmake ..
         
     - name: Build unit_tests
       run: make unit_test
+      
     - name: Unit testing
       run: ./unit_test
