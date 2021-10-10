@@ -38,8 +38,7 @@ jobs:
         make unit_test
       
     - name: Unit testing
-      run: |
-        .build/unit_test
+      run: ./build/unit_test
         
     - name: Gcovr test
-      run: gcovr -r . --html -o example-html.html
+      run: gcovr -r . --html --html-details -o coverage_report.html
