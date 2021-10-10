@@ -95,8 +95,11 @@ TEST(TestIOFunctions, test) {
 
     // output_roman_num()
     char *roman_num = "XIV";
+    FILE *out_file = fopen("out_test.out", "w");
     EXPECT_EQ(output_roman_num(nullptr, roman_num), NULL_POINTER_EXCEPTION);
     EXPECT_EQ(output_roman_num(stdout, nullptr), NULL_POINTER_EXCEPTION);
+    EXPECT_EQ(output_roman_num(out_file, roman_num), SUCCESS);
+    fclose(out_file);
 
     num = 1239;
 }
