@@ -3,10 +3,6 @@ project(cpp_iz_1)
 
 add_compile_options("--coverage")
 
-#set(CMAKE_CXX_FLAGS "-fprofile-arcs -ftest-coverage -fPIC -O0")
-#set(CMAKE_C_FLAGS "-fprofile-arcs -ftest-coverage -fPIC -O0")
-#set(CMAKE_EXE_LINKER_FLAGS "-fprofile-arcs -ftest-coverage -fPIC -O0")
-
 set(SOURCE_LIB src/into_roman_nums.c src/io_functions.c src/print_errors.c)
 set(SOURCE_MAIN_EXE src/main.c)
 set(SOURCE_TEST_EXE unit_tests/main.cpp)
