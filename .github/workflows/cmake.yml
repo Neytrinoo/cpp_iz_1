@@ -1,0 +1,39 @@
+name: CMake
+
+on:
+  pull_request:
+    branches: [ main ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Cpplint check
+      run: |
+        sudo apt-get install cpplint
+        cpplint --extensions=c src/*
+      
+    - name: Cppcheck check
+      run: |
+        sudo apt-get install cppcheck
+        cppcheck --enable=all --suppress=missingInclude src/
+      
+    - name: Cmake build
+      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
+      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
+      run: |
+        mkdir build
+        cd bulid
+        cmake ..
+        
+    - name: Build unit_tests
+      run: make unit_test
+    - name: Unit testing
+      run: ./unit_test
