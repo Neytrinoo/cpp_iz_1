@@ -1,9 +1,18 @@
 cmake_minimum_required(VERSION 3.17)
-project(cpp_iz_1 C)
+project(cpp_iz_1)
 
-set(CMAKE_C_STANDARD 99)
+set(SOURCE_LIB src/into_roman_nums.c src/io_functions.c src/print_errors.c)
+set(SOURCE_MAIN_EXE src/main.c)
+set(SOURCE_TEST_EXE unit_tests/main.cpp)
 
-include_directories(include)
-aux_source_directory(src SRC)
 
-add_executable(cpp_iz_1 ${SRC})
+add_library(roman_nums STATIC ${SOURCE_LIB})
+target_include_directories(roman_nums PUBLIC include)
+
+add_executable(main ${SOURCE_MAIN_EXE})
+target_include_directories(main PUBLIC include)
+target_link_libraries(main roman_nums)
+
+add_executable(unit_test unit_tests/main.cpp)
+target_include_directories(unit_test PUBLIC include)
+
