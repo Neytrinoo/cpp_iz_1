@@ -1,0 +1,9 @@
+#ifndef CPP_IZ_1_RESULT_CODES_H
+#define CPP_IZ_1_RESULT_CODES_H
+
+#define SUCCESS 0
+#define NULL_POINTER_EXCEPTION -1
+#define INVALID_FORMAT -2
+#define INVALID_NUM -3
+
+#endif //CPP_IZ_1_RESULT_CODES_H
